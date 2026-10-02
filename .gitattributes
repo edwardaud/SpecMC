@@ -1,0 +1,25 @@
+# Line-ending policy.
+#
+# The package is used on Windows and on Linux/WSL.  A CRLF in a `.py`/`.sh`
+# file breaks a `#!/usr/bin/env bash` shebang (`bash\r`) and makes a file's
+# bytes depend on the local `core.autocrlf` checkout setting.  Pin LF for
+# every text file that is executed, independent of that setting.
+* text=auto
+*.py text eol=lf
+*.sh text eol=lf
+*.sha256 text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.cfg text eol=lf
+*.txt text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+LICENSE text eol=lf
+
+# Binary artifacts that must never be touched by the eol filter.
+*.npz binary
+*.npy binary
+*.png binary
+*.pdf binary
+*.mp4 binary
+*.webp binary
